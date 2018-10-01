@@ -1,0 +1,7 @@
+default: &default
+  adapter: postgresql
+test:
+  <<: *default
+  database: quantified_self_rails
+  username: keegan
+  encoding: utf8
