@@ -4,3 +4,12 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+task :deploy do
+    sh "git push origin master"
+    sh "git push heroku master"
+    sh ""
+
+end
+
+task :default => ["deploy"]
