@@ -1,7 +1,6 @@
 language: ruby
 rvm:
   - "2.4.3"
-  - jruby
 env:
   - DB=postgresql
 script:
