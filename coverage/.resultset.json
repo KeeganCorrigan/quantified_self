@@ -54,10 +54,6 @@
       "/Users/Keegan/turing/4module/quantified_self_rails/app/controllers/api/v1/favorite_foods_controller.rb": [
         1,
         1,
-        null,
-        null,
-        null,
-        null,
         1,
         null,
         null
@@ -235,6 +231,6 @@
         null
       ]
     },
-    "timestamp": 1538522388
+    "timestamp": 1538524646
   }
 }
