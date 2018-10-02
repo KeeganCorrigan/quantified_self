@@ -1,6 +1,6 @@
 class Api::V1::FoodsController < ApplicationController
   before_action :validate_food, only: [:show]
-  before_action :set_food, only: [:update]
+  before_action :set_food, only: [:update, :destroy]
 
   def index
     render json: Food.all
@@ -27,6 +27,14 @@ class Api::V1::FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    if @food
+      @food.destroy
+    else
+      render status: 404
+    end
+  end
+
   private
 
   def create_food(food_params)
@@ -37,6 +45,6 @@ class Api::V1::FoodsController < ApplicationController
   end
 
   def set_food
-    @food = Food.find(params[:id])
+    @food = Food.find_by(id: params[:id])
   end
 end

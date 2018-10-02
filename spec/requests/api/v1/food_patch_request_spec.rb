@@ -26,11 +26,10 @@ describe "Food API" do
       expect(updated_food.id).to eq(food.id)
     end
 
-    it "should return status 400 if food is not updated" do
+    it "should not update food without calories" do
       food = create(:food)
 
       name = "new great food"
-      calories = "10"
 
       json_payload = { "food": { "name" => "#{name}" } }
 
@@ -40,6 +39,20 @@ describe "Food API" do
 
       expect(response).to have_http_status(400)
       expect(not_updated_food.name).to_not eq(name)
+    end
+
+    it "should not update food without name" do
+      food = create(:food)
+
+      calories = "10"
+
+      json_payload = { "food": { "calories" => "#{calories}" } }
+
+      patch "/api/v1/foods/#{food.id}", params: json_payload
+
+      not_updated_food = Food.find(food.id)
+
+      expect(response).to have_http_status(400)
       expect(not_updated_food.calories).to_not eq(calories)
     end
   end
