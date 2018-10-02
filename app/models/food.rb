@@ -8,7 +8,9 @@ class Food < ApplicationRecord
     foods = joins(:meals).group("foods.id").having("COUNT(meal_foods.food_id) > 1").count
 
     times_eaten = order_food_by_times_eaten(foods)
-    find_favorite_food_objects(times_eaten)
+    find_favorite_food_objects(times_eaten).sort_by do |count, food|
+      -count
+    end.to_h
   end
 
   private

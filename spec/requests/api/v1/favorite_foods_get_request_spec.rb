@@ -25,9 +25,20 @@ describe "Favorite foods API" do
       get "/api/v1/favorite_foods"
 
       parsed_response = JSON.parse(response.body, symbolize_names: true)
+      most_eaten = parsed_response.first
+      food = most_eaten[:foods].first
 
       expect(response).to have_http_status(200)
-      expect(parsed_response.count).to eq(3)
+      expect(parsed_response.count).to eq(2)
+
+      expect(most_eaten).to have_key(:times_eaten)
+      expect(most_eaten).to have_key(:foods)
+
+      expect(food).to have_key(:name)
+      expect(food).to have_key(:calories)
+      expect(food).to have_key(:mealsWhenEaten)
+      expect(food[:mealsWhenEaten]).to be_a(Array)
+      expect(food[:mealsWhenEaten].count).to eq(3)
     end
   end
 end
