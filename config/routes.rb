@@ -3,8 +3,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :foods
       resources :meals, only: [:index] do
-        resources :foods, only: [:index], to: "meals/foods#index" do
-        end
+        post "/foods/:id", to: "meals/foods#create"
+        delete "foods/:id", to: "meals/foods#destroy"
+        resources :foods, only: [:index], to: "meals/foods#index"
+        resources :foods, only: [:create], to: "meals/foods#create"
       end
     end
   end
