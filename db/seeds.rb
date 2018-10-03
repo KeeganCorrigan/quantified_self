@@ -6,6 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Food.create!(name: "oreos", calories: 40)
-Food.create!(name: "pringels", calories: 50)
-Food.create!(name: "doritos", calories: 120)
+meal_1 = Meal.create(name: "breakfast")
+meal_2 = Meal.create(name: "dinner")
+meal_3 = Meal.create(name: "lunch")
+meal_4 = Meal.create(name: "snack")
+
+food_1 = meal_1.foods.create(name: "Oreo", calories: 50)
+food_2 = meal_1.foods.create(name: "Doritos", calories: 50)
+food_3 = meal_1.foods.create(name: "Smores", calories: 60)
+food_4 = Food.create(name: "PBR", calories: 140)
+
+MealFood.create(meal: meal_2, food: food_1)
+MealFood.create(meal: meal_2, food: food_2)
+MealFood.create(meal: meal_2, food: food_3)
+MealFood.create(meal: meal_3, food: food_2)
+MealFood.create(meal: meal_3, food: food_1)
+MealFood.create(meal: meal_4, food: food_4)
