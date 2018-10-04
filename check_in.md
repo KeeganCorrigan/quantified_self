@@ -11,6 +11,8 @@ https://quantified-self-kc.herokuapp.com
 
 ## Screenshot of CI builds (if all don't fit, include most recent):
 
+![image](https://github.com/KeeganCorrigan/quantified_self/blob/master/Screen%20Shot%202018-10-04%20at%2012.16.10%20PM.png)
+
 ## Does your documentation include: [x] A description of what the point of the app is [x] Instructions on how to set up locally [x] Descriptions of endpoints
 
 ## Have you had another human read through your documentation and try to get your project up and running yet? If so, did you make any edits after that? If not, when do you plan to do this and who do you plan to ask?
