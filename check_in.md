@@ -3,7 +3,7 @@
 
 ### Instructor:
 
-Amy Holt
+Amy
 
 ## Deployed link:
 
